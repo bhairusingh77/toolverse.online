@@ -51,7 +51,7 @@ const SocialMediaConverter = () => {
       } else {
         setDownloadLink(data.file);
       }
-    } catch (err) {
+    } catch {
       setError('Failed to process your request. Please try again.');
     } finally {
       setLoading(false);
@@ -114,44 +114,6 @@ const SocialMediaConverter = () => {
                 </select>
               </div>
             </div>
-
-            {/* Advanced Settings Toggle */}
-            {/* <div>
-              <button
-                onClick={() => setShowAdvanced(!showAdvanced)}
-                className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-800 transition"
-              >
-                <span className="text-lg">⚙️</span>
-                Advanced Settings
-              </button>
-              
-              {showAdvanced && (
-                <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                  <div className="space-y-4">
-                    <div>
-                      <label className=" block text-sm font-medium text-gray-700 mb-2">
-                        Start Time (optional)
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="00:00"
-                        className="w-full  px-4 py-2 rounded-lg border border-gray-300"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        End Time (optional)
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="00:00"
-                        className=" text-black w-full px-4 py-2 rounded-lg border border-gray-300"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div> */}
 
             {/* Download Button */}
             <button
