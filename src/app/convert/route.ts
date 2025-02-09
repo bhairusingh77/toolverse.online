@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
                 convertedImage = await sharp(buffer).webp().toBuffer();
                 break;
             case "bmp":
-                convertedImage = await sharp(buffer).toFormat("bmp").toBuffer();
+                convertedImage = await sharp(buffer).toBuffer();
                 break;
             case "tiff":
                 convertedImage = await sharp(buffer).tiff().toBuffer();
