@@ -67,6 +67,8 @@ export default function ImageConverter() {
         saveAs(content, "converted_images.zip");
     };
 
+    const rootProps = getRootProps() as unknown as React.HTMLAttributes<HTMLDivElement>;
+
     return (
         <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 text-gray-900 p-8">
             <motion.h1
@@ -79,7 +81,7 @@ export default function ImageConverter() {
             </motion.h1>
 
             <motion.div
-                {...getRootProps() as any}
+                {...rootProps}
                 className="w-full max-w-lg h-44 flex flex-col items-center justify-center border-2 border-dashed border-gray-400 bg-white shadow-lg rounded-lg cursor-pointer p-4 hover:bg-gray-50 transition"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
