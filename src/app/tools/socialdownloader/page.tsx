@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 const SocialMediaConverter = () => {
   const [url, setUrl] = useState('');
-  const [format, setFormat] = useState('mp4');
+  const [format, setFormat] = useState<'mp4' | 'mp3'>('mp4');  // ✅ Type Fixed
   const [quality, setQuality] = useState('high');
   const [loading, setLoading] = useState(false);
   const [downloadLink, setDownloadLink] = useState('');
@@ -89,7 +89,7 @@ const SocialMediaConverter = () => {
                 </label>
                 <select
                   value={format}
-                  onChange={(e) => setFormat(e.target.value)}
+                  onChange={(e) => setFormat(e.target.value as 'mp4' | 'mp3')} // ✅ Type Assertion
                   className="w-full text-black px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 >
                   <option value="mp4">MP4 Video</option>
@@ -104,9 +104,9 @@ const SocialMediaConverter = () => {
                 <select
                   value={quality}
                   onChange={(e) => setQuality(e.target.value)}
-                  className=" text-black w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="text-black w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 >
-                  {qualityOptions[format].map((option) => (
+                  {qualityOptions[format].map((option) => (  // ✅ Now format is guaranteed to be "mp4" or "mp3"
                     <option key={option.value} value={option.value}>
                       {option.label}
                     </option>
