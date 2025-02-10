@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
         const title = await getVideoTitle(url);
         const sanitizedTitle = `${title}_toolverse.online`; // No brackets
 
-        const downloadDir = path.join(process.cwd(), "public", "downloads");
+        const downloadDir = "/tmp";  // Use Vercel's writable directory
         if (!fs.existsSync(downloadDir)) {
             fs.mkdirSync(downloadDir, { recursive: true });
         }
